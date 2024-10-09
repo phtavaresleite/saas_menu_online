@@ -1,0 +1,62 @@
+{% extends 'base.html'%} {% load static %} {% block content %}
+<section class="banner"></section>
+
+<section class="services"></section>
+
+<section class="cardapio" id="cardapio">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-12">
+        <span class="hint-title"><b>Cardápio</b></span>
+        <h2 class="title">Conheça nossos pratos</h2>
+
+        <div class="col-12 container-menu">
+          <a href="" class="btn btn-white btn-sm mr-3">
+            <i class="fa-solid fa-pizza-slice"></i>&nbsp;Pizzas
+          </a>
+
+          <a href="" class="btn btn-white btn-sm mr-3">
+            <i class="fa-solid fa-burger"></i>&nbsp;Sanduíches
+          </a>
+
+          <a href="" class="btn btn-white btn-sm mr-3">
+            <i class="fa-solid fa-utensils"></i>&nbsp;Porções
+          </a>
+
+          <a href="" class="btn btn-white btn-sm mr-3">
+            <i class="fas fa-cocktail"></i>&nbsp;Bebidas
+          </a>
+
+          <a href="" class="btn btn-white btn-sm mr-3">
+            <i class="fa-solid fa-ice-cream"></i>&nbsp;Sobremesa
+          </a>
+        </div>
+
+          <div class="row" id="itensCardapio">
+              {% for produto in produtos %}
+              <div class="col-3 col-md-4 col-sm-6 card-box">
+                <div class="card card-item">
+                  <div>
+                    <img class="card-img-top" src="{{ produto.imagem.url }}" />
+                  </div>
+                  <div class="card-body text-center">
+                    <h5 class="card-title">{{ produto.nome }}</h5>
+                    <p class="card-text">{{ produto.descricao }}</p>
+                    <p class="card-text">R$ {{ produto.preco }}</p>
+                  </div>
+                  <div class="add-cart">
+                    <span class="btn-mais"
+                      ><i class="fa-solid fa-plus btn btn-primary btn-cart"></i
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about"></section>
+{% endblock %}
