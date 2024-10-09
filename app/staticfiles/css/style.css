@@ -1,25 +1,128 @@
+/* base */
 :root{
-    --color-background: #fffdf7;
+    --color-background: #ffffff;
     --color-black: #212121;
+    --color-grey: #d2d2d2;
     --color-text: #4f4f4f;
     --color-text-secondary: #90908e;
     --color-primary: #ffbf00;
-    --color-secondary: #fff2cc;
+    --color-secondary: #ffe38e;
     --color-white: #ffffff;
     --color-red: #e74c3c;
     --color-green: #2ecc71;
-    --color-separete: #cccccc;
 }
+
+/* base */
 
 html, body{
     background-color: var(--color-background);
 }
 
-.nav-link{
-    color: var(--color-black);
-    padding: auto 35px !important;
+.btn-cart{
+    background-color: var(--color-primary) !important;
+    border-radius: 10px;
+    color: var(--color-black) !important;
+    border: none;
+    box-shadow: 1px 1px 15px -4px rgba(0, 0, 0, 0.46);
 }
 
-#cart{
+.rodape {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-grey) !important;
+}
+
+/* index */
+
+.btn-white {
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    border-radius: 20px;
+    color: var(--color-black) !important;
+    padding: 15px 15px;
+    margin: 15px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 20px;
+    box-shadow: 1px 1px 15px -4px rgba(0, 0, 0, 0.46);
+}
+
+.active{
     background-color: var(--color-primary) !important;
+}
+
+.inative{
+    display: none;
+}
+
+.cardapio{
+    padding-top: 30px;
+    padding-bottom: 150px;
+}
+
+.hint-title{
+    color: var(--color-primary);
+}
+
+#itensCardapio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.card-box {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    min-height: 300px;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-title{
+    text-transform: capitalize !important;
+}
+
+.card-item{
+    padding: 10px;
+    min-width: 180px;
+    height: 370px;
+}
+
+.card-item:hover{
+    background-color: var(--color-secondary);
+    box-shadow: 1px 1px 15px -4px rgba(0, 0, 0, 0.46);
+}
+
+
+
+
+@media (max-width: 600px) {
+    .btn-white{
+        display: flex;
+        min-width: 50% !important;
+    }
+
+    .card-box {
+        min-width: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 3px !important;
+        width: 50% !important;
+    }
+
+
+    .card-item{
+        min-width: 50%;
+        height: 360px;
+        padding: 5px !important;
+    }
+
+    .card-title .card-body{
+        font-size: 13px;
+    }
 }

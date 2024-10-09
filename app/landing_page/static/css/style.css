@@ -1,7 +1,7 @@
-/* base */
 :root{
     --color-background: #ffffff;
     --color-black: #212121;
+    --color-grey: #d2d2d2;
     --color-text: #4f4f4f;
     --color-text-secondary: #90908e;
     --color-primary: #ffbf00;
@@ -9,15 +9,13 @@
     --color-white: #ffffff;
     --color-red: #e74c3c;
     --color-green: #2ecc71;
-    --color-separete: #cccccc;
 }
+
+
+/* base */
 
 html, body{
     background-color: var(--color-background);
-}
-.nav-link{
-    color: var(--color-black);
-    padding: auto 35px !important;
 }
 
 .btn-cart{
@@ -26,6 +24,32 @@ html, body{
     color: var(--color-black) !important;
     border: none;
     box-shadow: 1px 1px 15px -4px rgba(0, 0, 0, 0.46);
+}
+
+.rodape {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+
+}
+
+.rodape .info {
+    margin-top: 10px;
+    /* espaçamento entre o texto e os ícones */
+}
+
+.rodape .info a {
+    margin-right: 10px;
+    /* espaçamento entre os ícones */
+    color: #fff;
+    /* cor do texto dos ícones */
+    text-decoration: none;
+    /* remover sublinhado dos links */
+}
+
+.rodape .info a:hover {
+    color: #ccc;
+    /* cor do texto dos ícones ao passar o mouse */
 }
 
 /* index */
@@ -69,6 +93,7 @@ html, body{
 
 
 .card-box {
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -88,21 +113,19 @@ html, body{
     height: 370px;
 }
 
-.card-item img{
-    max-width: 290px ;
-    max-height: 200px;
-}
-
 .card-item:hover{
     background-color: var(--color-secondary);
     box-shadow: 1px 1px 15px -4px rgba(0, 0, 0, 0.46);
 }
 
 
+
+
 @media (max-width: 600px) {
-    .cabecalho img{
-        width: 130px;
-        height: 130px;
+    .cabecalho img {
+        max-width: 130px;
+        height: auto;
+        object-fit: contain;
     }
 
     .btn-white{
@@ -127,10 +150,5 @@ html, body{
 
     .card-title .card-body{
         font-size: 13px;
-    }
-
-    .card img {
-        width: 100%;
-        height: auto;
     }
 }
