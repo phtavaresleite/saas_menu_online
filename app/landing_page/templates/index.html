@@ -1,4 +1,4 @@
-{% extends 'base.html'%} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <section class="banner"></section>
 
 <section class="services"></section>
@@ -32,31 +32,78 @@
           </a>
         </div>
 
-          <div class="row" id="itensCardapio">
-              {% for produto in produtos %}
-              <div class="{{ produto.categoria }} col-3 card-box">
-                <div class="card card-item " title="{{ produto.nome }}">
-                  <div>
-                    <img class="card-img-top img-fluid img-thumbnail" src="{{ produto.imagem.url }}" alt="imagem do produto {{ produto.nome }}" />
-                  </div>
-                  <div class="card-body text-center">
-                    <h5 class="card-title text-break">{{ produto.nome }}</h5>
-                    <p class="card-text text-break">{{ produto.descricao }}</p>
-                    <p class="card-text">R$ {{ produto.preco }}</p>
-                  </div>
-                  <div class="add-cart">
-                    <span class="btn-mais" title="Adicionar ao carrinho"
-                      ><i class="fa-solid fa-plus btn btn-primary btn-cart"></i
-                    ></span>
-                  </div>
-                </div>
+        <div class="row" id="itensCardapio">
+          {% for produto in produtos %}
+          <div class="{{ produto.categoria }} col-3 card-box">
+            <div class="card card-item" title="{{ produto.nome }}">
+              <div class="card-image">
+                <img
+                  class="card-img-top img-fluid img-thumbnail"
+                  src="{{ produto.imagem.url }}"
+                  alt="imagem do produto {{ produto.nome }}"
+                />
               </div>
-              {% endfor %}
+              <div class="card-body text-center">
+                <h5 class="card-title text-break">{{ produto.nome }}</h5>
+                <p class="card-text">R$ {{ produto.preco }}</p>
+              </div>
+              <div
+                class="add-cart"
+                id="open-{{ produto.id }}"
+                data-modal="modal-{{ produto.id }}"
+              >
+                <span
+                  class="btn btn-mais"
+                  title="Adicionar ao carrinho"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalProduto{{ produto.id }}"
+                  ><i class="fa-solid fa-plus btn btn-primary btn-cart"></i
+                ></span>
+              </div>
+            </div>
           </div>
+
+          <div
+            class="modal fade"
+            id="modalProduto{{ produto.id }}"
+            tabindex="-1"
+            aria-labelledby="modalProduto{{ produto.id }}"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">{{ produto.nome }}</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                  <div>
+                    <img
+                      class="card-img-top img-fluid img-thumbnail"
+                      src="{{ produto.imagem.url }}"
+                      alt="imagem do produto {{ produto.nome }}"
+                    />
+                  </div>
+                  <p><strong>Descrição: </strong>{{ produto.descricao }}</p>
+                  <p>R$ {{ produto.preco }}</p>
+                </div>
+
+                <div class="modal-footer"></div>
+              </div>
+            </div>
+          </div>
+
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="about"></section>
 {% endblock %}

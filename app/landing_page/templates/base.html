@@ -43,7 +43,7 @@
           /></a>
 
           <div class="ms-auto">
-            <a class="btn btn-primary btn-cart btn-icon" href="#">
+            <a class="btn btn-primary btn-cart btn-icon" href="{% url 'checkout' %}">
               Meu carrinho
               <span class="icon">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -97,5 +97,7 @@
       type="text/javascrip"
       src="{% static 'js/popper.min.js' %}"
     ></script>
+
+    <script type="text/javascrip" src="{% static 'js/script.js' %}"></script>
   </body>
 </html>
