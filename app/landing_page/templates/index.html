@@ -1,8 +1,4 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section class="banner"></section>
-
-<section class="services"></section>
-
 <section class="cardapio" id="cardapio">
   <div class="container text-center">
     <div class="row">
@@ -34,32 +30,21 @@
 
         <div class="row" id="itensCardapio">
           {% for produto in produtos %}
-          <div class="{{ produto.categoria }} col-3 card-box">
-            <div class="card card-item" title="{{ produto.nome }}">
-              <div class="card-image">
-                <img
-                  class="card-img-top img-fluid img-thumbnail"
-                  src="{{ produto.imagem.url }}"
-                  alt="imagem do produto {{ produto.nome }}"
-                />
-              </div>
-              <div class="card-body text-center">
-                <h5 class="card-title text-break">{{ produto.nome }}</h5>
-                <p class="card-text">R$ {{ produto.preco }}</p>
-              </div>
-              <div
-                class="add-cart"
-                id="open-{{ produto.id }}"
-                data-modal="modal-{{ produto.id }}"
-              >
-                <span
-                  class="btn btn-mais"
-                  title="Adicionar ao carrinho"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modalProduto{{ produto.id }}"
-                  ><i class="fa-solid fa-plus btn btn-primary btn-cart"></i
-                ></span>
-              </div>
+          <div
+            class="{{ produto.categoria }} col-3 card"
+            data-modal="modal-{{ produto.id }}"
+            title="{{ produto.nome }}"
+            data-bs-toggle="modal"
+            data-bs-target="#modalProduto{{ produto.id }}"
+          >
+            <img
+              class="card-img-top img-fluid"
+              src="{{ produto.imagem.url }}"
+              alt="imagem do produto {{ produto.nome }}"
+            />
+            <div class="card-content">
+              <p class="card-text description">{{ produto.nome }}</p>
+              <p class="card-text price">R$ {{ produto.preco }} \cada</p>
             </div>
           </div>
 
@@ -67,13 +52,13 @@
             class="modal fade"
             id="modalProduto{{ produto.id }}"
             tabindex="-1"
-            aria-labelledby="modalProduto{{ produto.id }}"
+            aria-labelledby="modalProdutLabel{{ produto.id }}"
             aria-hidden="true"
           >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">{{ produto.nome }}</h5>
+                  <h1 class="modal-title fs-5">{{ produto.nome }}</h1>
                   <button
                     type="button"
                     class="btn-close"
@@ -94,7 +79,19 @@
                   <p>R$ {{ produto.preco }}</p>
                 </div>
 
-                <div class="modal-footer"></div>
+                <div class="modal-footer">
+                  <div class="add-cart">
+                    <span class="btn btn-menos"><i class="fas fa-minus"></i></span>
+                    <span class="add-numero-itens">1</span>
+                    <span class="btn btn-mais"><i class="fas fa-plus"></i></span>
+                    <span class="btn btn-add"
+                      ><i
+                        class="fa-solid fa-cart-shopping"
+                        title="Finalizar compra"
+                      ></i
+                    ></span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
